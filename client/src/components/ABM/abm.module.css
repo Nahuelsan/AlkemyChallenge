@@ -1,0 +1,180 @@
+*{
+    margin: 0;  
+    padding: 0;
+    box-sizing:  border-box;
+  }
+  
+  .form{
+      color: #fff;
+      max-width: 800px;
+      background-color: #24303c;
+      padding: 11px;
+      margin: 20px auto;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 7px 13px 37px  #000;
+  }
+  
+  .form h4{
+      font-size: 22px;
+      margin-bottom: 20px;
+  }
+  .form input{
+      outline: none;
+      border-radius: 8px;
+  }
+  
+  .controls{
+      width: 100%;
+      background-color: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;
+      color:#fff;
+      resize: none;
+      outline: none;
+  }
+  
+  .botones{
+      width: 100%;
+      background-color: #1f53c5;
+      border: none;
+      padding: 12px;
+      color: white;
+      margin: 16px 0;
+      font-size:12px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+  }
+  
+  .product{
+      width: 100%;
+  }
+  
+  .product .botonesDeleted {
+      background-color: transparent;
+      border: none;
+      padding: 12px;
+      color: white;
+      margin: 16px 0;
+      font-size:12px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+  }
+  
+  .product .boton_modificar{
+      background-color: transparent;
+      border: none;
+      padding: 12px;
+      color: white;
+      margin: 16px 0;
+      font-size:12px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+  }
+  .botonesDeleted:hover,
+  .boton_modificar:hover{
+      background-color: #ab47bc;
+  }
+  .formulario input[type="checkbox"]{
+      display: none;
+  }
+  .formulario .checkbox label{
+      color: #0074d9;
+      padding: 5px 15px 5px 51px;
+      display: inline-block;
+      position: relative;
+      font-size: 1em;
+      border-radius: 3px;
+      cursor: pointer;
+      -webkit-transition:all 0.3s ease ;
+      -o-transition:all 0.3s ease ;
+      transition:all 0.3s ease ;
+  }
+  
+  .formulario .checkbox label:hover {
+      background: rgba(0,116,217,0.1);
+  }
+  
+  .formulario .checkbox label:before{
+      content: "";
+      width: 17px;
+      height: 17px;
+      display: inline-block;
+      background: none;
+      border: 3px solid #0774d9;
+      border-radius: 3px;
+      position: absolute;
+      left: 17px;
+      top: 10px;
+  }
+  
+  .formulario .checkbox input[type="checkbox"]:checked + label {
+      background: #FF4136;
+      color: #fff;
+      padding: 5px 15px; 
+  }
+  .formulario input[type="checkbox"]:checked + label:before{
+      display: none
+  } 
+  tr{
+      line-height: 20px;
+  }
+  .formulario textarea{
+      height: 10vh;
+  }
+  .description_td{
+      width: 40%;
+  }
+  td{
+      padding: 10px 0px;
+  }
+  @media (max-width: 500px){
+      .description_td{
+          display: none;
+      }
+  }
+  table{
+      border-collapse: collapse;
+  }
+  
+  tbody tr:nth-child(odd){
+      /* background-color: #7b1fa2;     */
+       background: linear-gradient(60deg,#ab47bc,#7b1fa2);   
+  }
+  tbody tr:nth-child(even){
+      background-color: #282C34;
+  }
+  
+  .container_edit{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   
+  }
+  .container_delete{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+  }
+  .acciones_td{
+      width: 10%;
+  }
+  .botones_create{
+      width: 50%;
+      height: 30px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      background: linear-gradient(60deg,#ab47bc,#7b1fa2); 
+      color: #DFE6E9;
+      cursor: pointer;
+      margin: 10px 0;
+  }
