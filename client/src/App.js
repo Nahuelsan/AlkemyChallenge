@@ -1,5 +1,4 @@
 import './App.css';
-import Balances from './components/Balances/balances';
 import DenseAppBar from './components/AppBar/appBar.js';
 import Home from './components/Home/home.js';
 import ABM from './components/ABM/abm.js';

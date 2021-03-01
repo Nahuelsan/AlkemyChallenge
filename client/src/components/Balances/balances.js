@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from  'react';
+import React from  'react';
 import CardOperation from '../CardOperation/cardOperation';
 import styles from './balances.module.css';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';

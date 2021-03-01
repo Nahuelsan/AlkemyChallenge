@@ -5,7 +5,7 @@ import api from '../../redux/action-creators.js';
 import ABM from '../ABM/abm.js';
 const Home = () =>{
     const dispatch = useDispatch()
-    const [state, setState] = useState([])
+    const [state] = useState([])
     const [abm, setAbm] = useState({
         show: false
     });
@@ -18,7 +18,7 @@ const Home = () =>{
             dispatch(api.getOperations())
         }
 
-    }, [])
+    }, [dispatch, operations])
     const onShow = () =>{
         setAbm({
             show: abm.show === true ? false : true
@@ -28,7 +28,7 @@ const Home = () =>{
         console.log(dateString)
         var dateSp = dateString.split("-");
         var anio = new Date().getFullYear();
-        if (dateSp.length == 3) {
+        if (dateSp.length === 3) {
           anio = dateSp[2];
         }
         var mes = dateSp[1] - 1;

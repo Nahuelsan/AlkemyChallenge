@@ -1,19 +1,10 @@
-import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-}));
 
 export default function DenseAppBar() {
     const operations = useSelector((store) => store.operations);
@@ -25,10 +16,6 @@ export default function DenseAppBar() {
         balances = balances + operation.mount
       }
       
-    });
-    const [state, setState] = useState({
-      show: false,
-      balance: ''
     });
     return (
         <AppBar position="static">

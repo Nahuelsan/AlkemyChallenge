@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import s from './createOperation.module.css';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { operation } from '../../../redux/action-creators.js';
-
+import { useDispatch } from 'react-redux';
+import api from '../../../redux/action-creators.js';
 const CreateOperation = () =>{
     const dispatch = useDispatch()
 
@@ -22,7 +20,7 @@ const CreateOperation = () =>{
     }
     const onSubmit = (e) => {
         e.preventDefault()
-        axios.post(`${process.env.REACT_APP_API_URL}/operation`, input)
+        dispatch(api.createOperation(input))
         setInput({
             concept: '',
             mount: '',

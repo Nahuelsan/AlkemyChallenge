@@ -1,7 +1,5 @@
 import React from 'react';
 import RowOperation from './RowOperation/rowOperation.js';
-import { useDispatch, useSelector } from 'react-redux';
-
 
 const TableOperation = ({s, onUpdate, onDelete, operations}) =>{
     return (
