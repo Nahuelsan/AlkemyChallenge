@@ -3,10 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '../Menu/menu.js';
-import styles from './appBar.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,24 +16,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DenseAppBar() {
-    const classes = useStyles();
+    const operations = useSelector((store) => store.operations);
+    let balances = 0
+    operations.forEach(operation => {
+      if(operation.type === "Egresos"){
+        balances = balances - operation.mount
+      }else{
+        balances = balances + operation.mount
+      }
+      
+    });
     const [state, setState] = useState({
-      show: false
+      show: false,
+      balance: ''
     });
     return (
         <AppBar position="static">
         <Toolbar variant="dense">
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon onClick={() => setState({...state, show : !state.show ? true : false})}/>
-
-            </IconButton>
             <Typography variant="h6" color="inherit">
-            Balance total $0
+            Balance total $ {balances}
             </Typography>
         </Toolbar>
-        {
-                state.show && <Menu className={styles.menu}/>
-        }
         </AppBar>
         
     );

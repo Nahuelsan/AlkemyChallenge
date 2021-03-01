@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import s from './createOperation.module.css';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { operation } from '../../../redux/action-creators.js';
 
 const CreateOperation = () =>{
+    const dispatch = useDispatch()
+
     const [ input, setInput ]  = useState({
-        name: '',
-        description: '',
-        price: '',
-        stock: '',
-        categories: []
+        concept: '',
+        mount: '',
+        date: '',
+        type: '',
     })
 
     const onChange = function (e){
@@ -18,25 +22,25 @@ const CreateOperation = () =>{
     }
     const onSubmit = (e) => {
         e.preventDefault()
+        axios.post(`${process.env.REACT_APP_API_URL}/operation`, input)
         setInput({
-            name: '',
-            description: '',
-            price: '',
-            stock: '',
-            categories: []
+            concept: '',
+            mount: '',
+            date: '',
+            type: '',
         })
     }
     return(
         <div className={s.container_form_addProduct}>
-            <h4>Agregar producto</h4>
+            <h4>Agregar operación</h4>
             <form onSubmit={onSubmit}>
                 <div className={s.container_inputs_products}>
                     <input
                         type="text"
-                        name="name"
+                        name="concept"
                         autoComplete="off"
                         onChange={onChange}
-                        value={input.name}
+                        value={input.concept}
                         maxLength="100"
                         placeholder="Ingrese el concepto"
                         pattern="[A-Za-z0-9 ]{5,100}"
@@ -46,9 +50,9 @@ const CreateOperation = () =>{
                 <div className={s.container_inputs_products}>
                     <input
                         type="text"
-                        name="price"
+                        name="mount"
                         onChange={onChange}
-                        value={input.price}
+                        value={input.mount}
                         pattern="[0-9,]{1,10}"
                         placeholder="Ingrese el monto"
                         title="Only Numbers"
@@ -59,33 +63,36 @@ const CreateOperation = () =>{
                 </div>
                 <div className={s.container_inputs_products}>
                     <input
-                        type="text"
-                        name="stock"
-                        pattern="[0-9]{1,999}"
+                        type="date"
+                        name="date"
                         autoComplete="off"
                         title="Only Numbers"
                         onChange={onChange}
-                        value={input.stock}
+                        value={input.date}
                         placeholder="Ingrese la fecha"
                         required />
                     <label>Ingrese la fecha</label>
                 </div>
                 <div className={s.container_inputs_products}>
-                    <input
+                    <select
                         type="text"
                         onChange={onChange}
-                        value={input.description}
-                        name="description"
+                        value={input.type}
+                        name="type"
                         pattern="[A-Za-z0-9 ]{5,250}"
                         autoComplete="off"
                         placeholder="Seleccione el tipo"
-                        required />
+                        required >
+                            <option defaultValue="none">Seleccione el tipo</option>
+                            <option value="Ingresos">Ingresos</option>
+                            <option value="Egresos">Egresos</option>
+                    </select>
                     <label>Seleccione el tipo</label>
                 </div>
                 <input
                     className={s.input_submit}
                     type="submit"
-                    value='Crear producto' />
+                    value='Crear operacion' />
             </form>
         </div>
     )

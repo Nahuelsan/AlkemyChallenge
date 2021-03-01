@@ -10,10 +10,10 @@ const CardOperation = (props) =>{
             <h4>${mount}</h4>
             <h4>{date}</h4>
             <h4>Tipo : {type}</h4>
-            <span className={style.show}>
+{/*             <span className={style.show}>
                 <BrushIcon color="primary" fontSize="large"/>
                 <ClearIcon color="secondary" fontSize="large"/>
-            </span>
+            </span> */}
         </div>
     )
 }

@@ -1,9 +1,11 @@
 import React from 'react'
-
+import {
+    Link
+} from "react-router-dom";
 const Menu = () => {
     return(
         <div>
-            <p>ABM de operaciones </p>
+            <Link to="/abm">ABM de operaciones</Link>
         </div>
     )
 }
