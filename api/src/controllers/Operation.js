@@ -14,7 +14,7 @@ module.exports = {
                 type: type,
                 concept: concept,
                 mount : mount,
-                date : date
+                date : date.split('-').reverse().join('-')
             }
         })
         .then(() => this.read())

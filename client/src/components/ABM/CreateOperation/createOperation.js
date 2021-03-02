@@ -68,6 +68,7 @@ const CreateOperation = () =>{
                         onChange={onChange}
                         value={input.date}
                         placeholder="Ingrese la fecha"
+                        pattern="\d{2}-\d{2}-\d{4}"
                         required />
                     <label>Ingrese la fecha</label>
                 </div>
